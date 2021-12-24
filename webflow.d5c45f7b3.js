@@ -1293,9 +1293,9 @@
         return n.ready = function() {
             var n, i, a, s = o.attr("data-wf-status"), h = o.attr("data-wf-domain") || "";
             /\.webflow\.io$/i.test(h) && u.hostname !== h && (s = !0),
-            s && !c && (e = e || (n = t('<p></p>'),
-            i = t("<p>"),
-            a = t("<p>"),
+            s && !c && (e = e || (n = t(""),
+            i = t(""),
+            a = t(""),
             n.append(i, a),
             n[0]),
             f(),
