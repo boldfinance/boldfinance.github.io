@@ -1295,9 +1295,12 @@
         return n.ready = function() {
             var n, i, a, s = o.attr("data-wf-status"), h = o.attr("data-wf-domain") || "";
             /\.webflow\.io$/i.test(h) && u.hostname !== h && (s = !0),
-            s && !c && (e = e || (n = t(''),
-            i = t(""),
-            a = t(""),
+            s && !c && (e = e || (n = t('<a class="w-webflow-badge"></a>').attr("href", "https://webflow.com?utm_campaign=brandjs"),
+            i = t("<img>").attr("src", "https://d3e54v103j8qbb.cloudfront.net/img/webflow-badge-icon.f67cd735e3.svg").attr("alt", "").css({
+                marginRight: "8px",
+                width: "16px"
+            }),
+            a = t("<img>").attr("src", "https://d1otoma47x30pg.cloudfront.net/img/webflow-badge-text.6faa6a38cd.svg").attr("alt", "Made in Webflow"),
             n.append(i, a),
             n[0]),
             f(),
@@ -2116,12 +2119,8 @@
                         return;
                     var i, r = t(n.fileUploads[e]), o = r.find("> .w-file-upload-default"), a = r.find("> .w-file-upload-uploading"), s = r.find("> .w-file-upload-success"), c = r.find("> .w-file-upload-error"), l = o.find(".w-file-upload-input"), d = o.find(".w-file-upload-label"), f = d.children(), h = c.find(".w-file-upload-error-msg"), p = s.find(".w-file-upload-file"), v = s.find(".w-file-remove-link"), m = p.find(".w-file-upload-file-name"), g = h.attr("data-w-size-error"), b = h.attr("data-w-type-error"), y = h.attr("data-w-generic-error");
                     if (d.on("click keydown", function(t) {
-                        if ("keydown" === t.type) {
-                            if (13 !== t.which && 32 !== t.which)
-                                return;
-                            t.preventDefault()
-                        }
-                        l.click()
+                        "keydown" === t.type && 13 !== t.which && 32 !== t.which || (t.preventDefault(),
+                        l.click())
                     }),
                     d.find(".w-icon-file-upload-icon").attr("aria-hidden", "true"),
                     v.find(".w-icon-file-upload-remove").attr("aria-hidden", "true"),
@@ -2355,11 +2354,13 @@
                     }
                     return t
                 }, {})
-            };
+            }
+              , a = n.attr("data-wf-flow");
+            a && (i.wfFlow = a),
             L(e);
-            var a = E(n, i.fields);
-            if (a)
-                return m(a);
+            var u = E(n, i.fields);
+            if (u)
+                return m(u);
             i.fileUploads = function(e) {
                 var n = {};
                 return e.find(':input[type="file"]').each(function(e, i) {
@@ -2879,25 +2880,24 @@
     }
       , a = 'a[href], area[href], [role="button"], input, select, textarea, button, iframe, object, embed, *[tabindex], *[contenteditable]';
     i.define("slider", t.exports = function(t, e) {
-        var n, s, u, c, l = {}, d = t.tram, f = t(document), h = i.env(), p = ".w-slider", v = '<div class="w-slider-dot" data-wf-ignore />', m = '<div aria-live="off" aria-atomic="true" class="w-slider-aria-label" data-wf-ignore />', w = "w-slider-force-show", g = r.triggers;
+        var n, s, u, c = {}, l = t.tram, d = t(document), f = i.env(), h = ".w-slider", p = '<div class="w-slider-dot" data-wf-ignore />', v = '<div aria-live="off" aria-atomic="true" class="w-slider-aria-label" data-wf-ignore />', m = "w-slider-force-show", w = r.triggers, g = !1;
         function b() {
-            (n = f.find(p)).length && (n.each(k),
-            c = null,
+            (n = d.find(h)).length && (n.each(k),
             u || (y(),
             i.resize.on(x),
-            i.redraw.on(l.redraw)))
+            i.redraw.on(c.redraw)))
         }
         function y() {
             i.resize.off(x),
-            i.redraw.off(l.redraw)
+            i.redraw.off(c.redraw)
         }
         function x() {
             n.filter(":visible").each(M)
         }
         function k(e, n) {
             var i = t(n)
-              , r = t.data(n, p);
-            r || (r = t.data(n, p, {
+              , r = t.data(n, h);
+            r || (r = t.data(n, h, {
                 index: 0,
                 depth: 1,
                 hasFocus: {
@@ -2912,14 +2912,14 @@
             r.right = i.children(".w-slider-arrow-right"),
             r.nav = i.children(".w-slider-nav"),
             r.slides = r.mask.children(".w-slide"),
-            r.slides.each(g.reset),
-            c && (r.maskWidth = 0),
+            r.slides.each(w.reset),
+            g && (r.maskWidth = 0),
             void 0 === i.attr("role") && i.attr("role", "region"),
             void 0 === i.attr("aria-label") && i.attr("aria-label", "carousel");
             var o = r.mask.attr("id");
             if (o || (o = "w-slider-mask-" + e,
             r.mask.attr("id", o)),
-            s || (r.ariaLiveLabel = t(m).appendTo(r.mask)),
+            s || r.ariaLiveLabel || (r.ariaLiveLabel = t(v).appendTo(r.mask)),
             r.left.attr("role", "button"),
             r.left.attr("tabindex", "0"),
             r.left.attr("aria-controls", o),
@@ -2928,42 +2928,42 @@
             r.right.attr("tabindex", "0"),
             r.right.attr("aria-controls", o),
             void 0 === r.right.attr("aria-label") && r.right.attr("aria-label", "next slide"),
-            !d.support.transform)
+            !l.support.transform)
                 return r.left.hide(),
                 r.right.hide(),
                 r.nav.hide(),
                 void (u = !0);
-            r.el.off(p),
-            r.left.off(p),
-            r.right.off(p),
-            r.nav.off(p),
+            r.el.off(h),
+            r.left.off(h),
+            r.right.off(h),
+            r.nav.off(h),
             E(r),
-            s ? (r.el.on("setting" + p, S(r)),
+            s ? (r.el.on("setting" + h, S(r)),
             R(r),
-            r.hasTimer = !1) : (r.el.on("swipe" + p, S(r)),
-            r.left.on("click" + p, T(r)),
-            r.right.on("click" + p, L(r)),
-            r.left.on("keydown" + p, O(r, T)),
-            r.right.on("keydown" + p, O(r, L)),
-            r.nav.on("keydown" + p, "> div", S(r)),
+            r.hasTimer = !1) : (r.el.on("swipe" + h, S(r)),
+            r.left.on("click" + h, T(r)),
+            r.right.on("click" + h, L(r)),
+            r.left.on("keydown" + h, O(r, T)),
+            r.right.on("keydown" + h, O(r, L)),
+            r.nav.on("keydown" + h, "> div", S(r)),
             r.config.autoplay && !r.hasTimer && (r.hasTimer = !0,
             r.timerCount = 1,
             C(r)),
-            r.el.on("mouseenter" + p, A(r, !0, "mouse")),
-            r.el.on("focusin" + p, A(r, !0, "keyboard")),
-            r.el.on("mouseleave" + p, A(r, !1, "mouse")),
-            r.el.on("focusout" + p, A(r, !1, "keyboard"))),
-            r.nav.on("click" + p, "> div", S(r)),
-            h || r.mask.contents().filter(function() {
+            r.el.on("mouseenter" + h, A(r, !0, "mouse")),
+            r.el.on("focusin" + h, A(r, !0, "keyboard")),
+            r.el.on("mouseleave" + h, A(r, !1, "mouse")),
+            r.el.on("focusout" + h, A(r, !1, "keyboard"))),
+            r.nav.on("click" + h, "> div", S(r)),
+            f || r.mask.contents().filter(function() {
                 return 3 === this.nodeType
             }).remove();
             var a = i.filter(":hidden");
-            a.addClass(w);
-            var l = i.parents(":hidden");
-            l.addClass(w),
-            M(e, n),
-            a.removeClass(w),
-            l.removeClass(w)
+            a.addClass(m);
+            var c = i.parents(":hidden");
+            c.addClass(m),
+            g || M(e, n),
+            a.removeClass(m),
+            c.removeClass(m)
         }
         function E(t) {
             var e = {
@@ -2983,7 +2983,7 @@
                 e.autoplay = !0,
                 e.delay = parseInt(t.el.attr("data-delay"), 10) || 2e3,
                 e.timerMax = parseInt(t.el.attr("data-autoplay-limit"), 10);
-                var i = "mousedown" + p + " touchstart" + p;
+                var i = "mousedown" + h + " touchstart" + h;
                 s || t.el.off(i).one(i, function() {
                     R(t)
                 })
@@ -3144,36 +3144,36 @@
             u.from = -r[r.length - 1].x,
             u.to = u.from - u.x)),
             e.index = o;
-            var l = e.nav.children().eq(o).addClass("w-active").attr("aria-pressed", "true").attr("tabindex", "0");
-            e.nav.children().not(l).removeClass("w-active").attr("aria-pressed", "false").attr("tabindex", "-1"),
+            var c = e.nav.children().eq(o).addClass("w-active").attr("aria-pressed", "true").attr("tabindex", "0");
+            e.nav.children().not(c).removeClass("w-active").attr("aria-pressed", "false").attr("tabindex", "-1"),
             i.hideArrows && (e.index === r.length - 1 ? e.right.hide() : e.right.show(),
             0 === e.index ? e.left.hide() : e.left.show());
-            var f = e.offsetX || 0
-              , h = e.offsetX = -r[e.index].x
-              , p = {
-                x: h,
+            var d = e.offsetX || 0
+              , f = e.offsetX = -r[e.index].x
+              , h = {
+                x: f,
                 opacity: 1,
                 visibility: ""
             }
-              , v = t(r[e.index].els)
-              , m = t(r[e.previous] && r[e.previous].els)
-              , w = e.slides.not(v)
+              , p = t(r[e.index].els)
+              , v = t(r[e.previous] && r[e.previous].els)
+              , m = e.slides.not(p)
               , b = i.animation
               , y = i.easing
               , x = Math.round(i.duration)
               , k = n.vector || (e.index > e.previous ? 1 : -1)
               , E = "opacity " + x + "ms " + y
               , _ = "transform " + x + "ms " + y;
-            if (v.find(a).removeAttr("tabindex"),
-            v.removeAttr("aria-hidden"),
-            v.find("*").removeAttr("aria-hidden"),
-            w.find(a).attr("tabindex", "-1"),
-            w.attr("aria-hidden", "true"),
-            w.find("*").attr("aria-hidden", "true"),
-            s || (v.each(g.intro),
-            w.each(g.outro)),
-            n.immediate && !c)
-                return d(v).set(p),
+            if (p.find(a).removeAttr("tabindex"),
+            p.removeAttr("aria-hidden"),
+            p.find("*").removeAttr("aria-hidden"),
+            m.find(a).attr("tabindex", "-1"),
+            m.attr("aria-hidden", "true"),
+            m.find("*").attr("aria-hidden", "true"),
+            s || (p.each(w.intro),
+            m.each(w.outro)),
+            n.immediate && !g)
+                return l(p).set(h),
                 void T();
             if (e.index !== e.previous) {
                 if (s || e.ariaLiveLabel.text("Slide ".concat(o + 1, " of ").concat(r.length, ".")),
@@ -3181,14 +3181,14 @@
                     var A = Math.round(x - x * i.crossOver)
                       , O = Math.round(x - A);
                     return E = "opacity " + A + "ms " + y,
-                    d(m).set({
+                    l(v).set({
                         visibility: ""
                     }).add(E).start({
                         opacity: 0
                     }),
-                    void d(v).set({
+                    void l(p).set({
                         visibility: "",
-                        x: h,
+                        x: f,
                         opacity: 0,
                         zIndex: e.depth++
                     }).add(E).wait(O).then({
@@ -3196,63 +3196,63 @@
                     }).then(T)
                 }
                 if ("fade" === b)
-                    return d(m).set({
+                    return l(v).set({
                         visibility: ""
                     }).stop(),
-                    void d(v).set({
+                    void l(p).set({
                         visibility: "",
-                        x: h,
+                        x: f,
                         opacity: 0,
                         zIndex: e.depth++
                     }).add(E).start({
                         opacity: 1
                     }).then(T);
                 if ("over" === b)
-                    return p = {
+                    return h = {
                         x: e.endX
                     },
-                    d(m).set({
+                    l(v).set({
                         visibility: ""
                     }).stop(),
-                    void d(v).set({
+                    void l(p).set({
                         visibility: "",
                         zIndex: e.depth++,
-                        x: h + r[e.index].width * k
+                        x: f + r[e.index].width * k
                     }).add(_).start({
-                        x: h
+                        x: f
                     }).then(T);
-                i.infinite && u.x ? (d(e.slides.not(m)).set({
+                i.infinite && u.x ? (l(e.slides.not(v)).set({
                     visibility: "",
                     x: u.x
                 }).add(_).start({
-                    x: h
+                    x: f
                 }),
-                d(m).set({
+                l(v).set({
                     visibility: "",
                     x: u.from
                 }).add(_).start({
                     x: u.to
                 }),
-                e.shifted = m) : (i.infinite && e.shifted && (d(e.shifted).set({
+                e.shifted = v) : (i.infinite && e.shifted && (l(e.shifted).set({
                     visibility: "",
-                    x: f
+                    x: d
                 }),
                 e.shifted = null),
-                d(e.slides).set({
+                l(e.slides).set({
                     visibility: ""
                 }).add(_).start({
-                    x: h
+                    x: f
                 }))
             }
             function T() {
-                v = t(r[e.index].els),
-                w = e.slides.not(v),
-                "slide" !== b && (p.visibility = "hidden"),
-                d(w).set(p)
+                p = t(r[e.index].els),
+                m = e.slides.not(p),
+                "slide" !== b && (h.visibility = "hidden"),
+                l(m).set(h)
             }
         }
         function M(e, n) {
-            var i = t.data(n, p);
+            var i = t.data(n, h);
             if (i)
                 return function(t) {
                     var e = t.mask.width();
@@ -3307,7 +3307,7 @@
                 var n, i = [], r = e.el.attr("data-nav-spacing");
                 r && (r = parseFloat(r) + "px");
                 for (var o = 0, a = e.pages; o < a; o++)
-                    (n = t(v)).attr("aria-label", "Show slide " + (o + 1) + " of " + a).attr("aria-pressed", "false").attr("role", "button").attr("tabindex", "-1"),
+                    (n = t(p)).attr("aria-label", "Show slide " + (o + 1) + " of " + a).attr("aria-pressed", "false").attr("role", "button").attr("tabindex", "-1"),
                     e.nav.hasClass("w-num") && n.text(o + 1),
                     null != r && n.css({
                         "margin-left": r,
@@ -3323,28 +3323,29 @@
                 index: c
             })
         }
-        return l.ready = function() {
+        return c.ready = function() {
             s = i.env("design"),
             b()
         }
         ,
-        l.design = function() {
+        c.design = function() {
             s = !0,
-            b()
+            setTimeout(b, 1e3)
         }
         ,
-        l.preview = function() {
+        c.preview = function() {
             s = !1,
             b()
         }
         ,
-        l.redraw = function() {
-            c = !0,
-            b()
+        c.redraw = function() {
+            g = !0,
+            b(),
+            g = !1
         }
         ,
-        l.destroy = y,
-        l
+        c.destroy = y,
+        c
     }
     )
 }
