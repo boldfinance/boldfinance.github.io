@@ -1263,12 +1263,12 @@
         return n.ready = function() {
             var n, i, a, s = o.attr("data-wf-status"), h = o.attr("data-wf-domain") || "";
             /\.webflow\.io$/i.test(h) && u.hostname !== h && (s = !0),
-            s && !c && (e = e || (n = t('<a class=""></a>').attr("href", ""),
+            s && !c && (e = e || (n = t('').attr("href", ""),
             i = t("").attr("src", "").attr("alt", "").css({
                 marginRight: "8px",
                 width: "16px"
             }),
-            a = t("").attr("", "").attr("alt", ""),
+            a = t("").attr("src", "").attr("alt", ""),
             n.append(i, a),
             n[0]),
             d(),
@@ -2864,3 +2864,20 @@
     t.exports = r
 }
 ]);
+function myFun(value) {
+    console.log("value lat long", value);
+    var array = [
+          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.410056269641!2d72.85299381490472!3d19.308004786955223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b02b9efce2b3%3A0x7fc7b8229998b58d!2zU2hyZWUgS2FyZGhhciBKZXdlbGxlcnMgKOCktuCljeCksOClgCDgpJXgpLDgpKfgpLAg4KSc4KWN4KS14KWH4KSy4KSw4KWN4KS4KQ!5e0!3m2!1sen!2sin!4v1651480693630!5m2!1sen!2sin",
+          "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7530.824030735172!2d72.8498949!3d19.3079197!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0291436998b%3A0xda9972b652828b82!2sSonam%20Jewellers!5e0!3m2!1sen!2sin!4v1651480893071!5m2!1sen!2sin",
+          "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d482000.76166845753!2d72.300689!3d19.2984087!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b153a7afe839%3A0xce57601b95cbf18f!2sSai%20Deep%20Jewellers!5e0!3m2!1sen!2sin!4v1651480971781!5m2!1sen!2sin",
+          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.41861677591!2d72.84775231490477!3d19.30763298695545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b1d496429ac1%3A0x704df26638c5ae58!2sShree%20panchratan%20jewellers!5e0!3m2!1sen!2sin!4v1651481032540!5m2!1sen!2sin",
+          "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15063.932604881315!2d72.8595054!3d19.2830989!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b05c7f1fb847%3A0x6136534476f4fb8!2sAbanon%20Jewellers!5e0!3m2!1sen!2sin!4v1651481078560!5m2!1sen!2sin",
+          "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d241007.6986522451!2d72.5821737!3d19.2934397!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b17866d94015%3A0xb6eb7b8bee758807!2sBold%20Gold%20Loan%20-%20Riddhi%20Gold!5e0!3m2!1sen!2sin!4v1651481134437!5m2!1sen!2sin","https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d241007.6986522451!2d72.5821737!3d19.2934397!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b1faf5bb9613%3A0x40ff39154a37cf81!2sBold%20Gold%20Loan%20-%20Shree%20Swastik%20Jewellers!5e0!3m2!1sen!2sin!4v1651481204198!5m2!1sen!2sin",
+          "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d241007.6986522451!2d72.5821737!3d19.2934397!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b19badf175d7%3A0x4a7c844b30291e3d!2sBold%20Gold%20Loan%20-%20Rita%20Jewellers!5e0!3m2!1sen!2sin!4v1651481275855!5m2!1sen!2sin"
+    ];
+    console.log("array", array[value]);
+
+    document.getElementById(
+      "mapIframe"
+    ).src = array[value]
+  }
