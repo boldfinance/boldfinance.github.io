@@ -987,7 +987,9 @@ textarea.w-input,textarea.w-select {
   .w-container {
       max-width:none
   }
-
+.text-spam-starts{
+  font-size: 12px !important;
+}
   .w-hidden-main {
       display: inherit !important
   }
@@ -2322,8 +2324,8 @@ textarea.w-input,textarea.w-select {
   width: auto;
   font-family: 'Public Sans', sans-serif;
   color: #faaa21;
-  font-size: 40px;
-  line-height: 76px;
+  font-size: 50px;
+  line-height: 84.6px;
   font-weight: 800;
   text-align: left;
 }
@@ -10078,4 +10080,9 @@ textarea.w-input,textarea.w-select {
 }
 .mapS{
   width: 100%;
+}
+.text-spam-starts{
+    color: #fff !important;
+    font-size: 22px;
+    font-family: 'Public Sans', sans-serif;
 }
