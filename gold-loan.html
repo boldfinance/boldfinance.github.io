@@ -504,6 +504,7 @@
 					$('#error-field-modal').html('धन्यवाद!<br />हमारी टीम जल्द ही आपसे संपर्क करेगी।')
 					$('#error-field-div-modal').css('display',"inline-block");
 					gtag('event', 'conversion', {'send_to': 'AW-10890021464/0YCcCLuq0uIDENiU4sgo'});
+					document.getElementById('phone-modal').value = '';
 				},
 				error: function (data) {
 					$('#modal-btn').html('Submit');
@@ -550,7 +551,7 @@
 					$('#error-field-top').html('धन्यवाद!<br />हमारी टीम जल्द ही आपसे संपर्क करेगी।')
 					$('#error-field-div-top').css('display',"inline-block");
 					gtag('event', 'conversion', {'send_to': 'AW-10890021464/0YCcCLuq0uIDENiU4sgo'});
-				
+					document.getElementById('phone-top').value = '';
 				},
 				error: function (data) {
 					$('#top-btn').html('Submit');
@@ -590,13 +591,14 @@
 				url: 'https://loan-apis.boldfinance.in/v1/lead/customer',
 				data: JSON.stringify({ 
 					phone:mobileNumber,
-					lead_source:'DM_WEBSTITE'
+					lead_source:'DM_WEBSITE'
 				}),
 				success: function (data) {
 					$('#bottom-btn').html('Submit');
 					$('#error-field').html('धन्यवाद!<br />हमारी टीम जल्द ही आपसे संपर्क करेगी।')
 					$('#error-field-div').css('display',"inline-block");
 					gtag('event', 'conversion', {'send_to': 'AW-10890021464/0YCcCLuq0uIDENiU4sgo'});
+					document.getElementById('phone').value = '';
 				},
 				error: function (data) {
 					$('#bottom-btn').html('Submit');
