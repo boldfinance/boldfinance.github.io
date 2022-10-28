@@ -480,6 +480,13 @@
 				$('#error-field-div-modal').css('display',"inline-block");
 				return;
 			}
+			
+			if(isPresentInSession(mobileNumber)) {
+				$('#error-field-modal').html('आप यह फ़ोन नंबर पहले ही सबमिट कर चुके है।')
+				$('#error-field-div-modal').css('display',"inline-block");
+				return;
+			}
+			
 			$('#error-field-div-modal').css('display',"none");
 			$('#modal-btn').html('Submitting...');
 			
@@ -505,6 +512,7 @@
 					$('#error-field-div-modal').css('display',"inline-block");
 					gtag('event', 'conversion', {'send_to': 'AW-10890021464/0YCcCLuq0uIDENiU4sgo'});
 					document.getElementById('phone-modal').value = '';
+					storeInSession(mobileNumber);
 				},
 				error: function (data) {
 					$('#modal-btn').html('Submit');
@@ -523,6 +531,12 @@
 			
 			if(mobileNumber.length !== 10) {
 				$('#error-field-top').html('कृपया एक मान्य मोबाइल नंबर दर्ज करें।')
+				$('#error-field-div-top').css('display',"inline-block");
+				return;
+			}
+			
+			if(isPresentInSession(mobileNumber)) {
+				$('#error-field-top').html('आप यह फ़ोन नंबर पहले ही सबमिट कर चुके है।')
 				$('#error-field-div-top').css('display',"inline-block");
 				return;
 			}
@@ -552,6 +566,7 @@
 					$('#error-field-div-top').css('display',"inline-block");
 					gtag('event', 'conversion', {'send_to': 'AW-10890021464/0YCcCLuq0uIDENiU4sgo'});
 					document.getElementById('phone-top').value = '';
+					storeInSession(mobileNumber);
 				},
 				error: function (data) {
 					$('#top-btn').html('Submit');
@@ -570,6 +585,12 @@
 			
 			if(mobileNumber.length !== 10) {
 				$('#error-field').html('कृपया एक मान्य मोबाइल नंबर दर्ज करें।')
+				$('#error-field-div').css('display',"inline-block");
+				return;
+			}
+			
+			if(isPresentInSession(mobileNumber)) {
+				$('#error-field').html('आप यह फ़ोन नंबर पहले ही सबमिट कर चुके है।')
 				$('#error-field-div').css('display',"inline-block");
 				return;
 			}
@@ -599,6 +620,7 @@
 					$('#error-field-div').css('display',"inline-block");
 					gtag('event', 'conversion', {'send_to': 'AW-10890021464/0YCcCLuq0uIDENiU4sgo'});
 					document.getElementById('phone').value = '';
+					storeInSession(mobileNumber);
 				},
 				error: function (data) {
 					$('#bottom-btn').html('Submit');
@@ -617,6 +639,23 @@
 				'send_to': 'UA-216016461-1'
 			});
 			gtag('event', 'conversion', {'send_to': 'AW-10890021464/0YCcCLuq0uIDENiU4sgo'});
+		}
+		
+		function isPresentInSession(mobile) {
+			var storedNumbers = JSON.parse(sessionStorage.getItem("phoneNumbers"));
+			if(storedNumbers !== null && storedNumbers.includes(mobile)) {
+				return true;
+			}
+			return false;
+		}
+		
+		function storeInSession(mobile) {
+			var storedNumbers = JSON.parse(sessionStorage.getItem("phoneNumbers"));
+			if(storedNumbers === null) {
+				storedNumbers = [];
+			}
+			storedNumbers.push(mobile);
+			window.sessionStorage.setItem("phoneNumbers", JSON.stringify(storedNumbers));
 		}
 		
 	</script>
