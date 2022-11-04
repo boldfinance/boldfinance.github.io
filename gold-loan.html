@@ -492,7 +492,7 @@
 			
 			gtag('event', 'click', {
 				'event_category': 'Submit',
-				'event_label': 'phone',
+				'event_label': 'phone_modal',
 				'send_to': 'UA-216016461-1'
 			});
 			
@@ -546,7 +546,7 @@
 				
 			gtag('event', 'click', {
 				'event_category': 'Submit',
-				'event_label': 'phone',
+				'event_label': 'phone_top',
 				'send_to': 'UA-216016461-1'
 			});
 			
@@ -600,7 +600,7 @@
 
 			gtag('event', 'click', {
 				'event_category': 'Submit',
-				'event_label': 'phone',
+				'event_label': 'phone_help_section',
 				'send_to': 'UA-216016461-1'
 			});
 			
@@ -631,8 +631,6 @@
 		}
 		
 		function trackEvent(eventCategory, eventLabel) {
-			console.log(eventCategory);
-			console.log(eventLabel);
 			gtag('event', 'click', {
 				'event_category': eventCategory,
 				'event_label': eventLabel,
