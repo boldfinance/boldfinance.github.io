@@ -1,0 +1,11 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.boldfinance.customer",
+      "sha256_cert_fingerprints":
+        ["A1:26:A5:39:18:A7:1D:A7:99:EC:C8:58:5A:53:ED:93:6C:C7:11:08:7B:D9:EB:2A:8E:6F:08:8A:BD:C6:0E:9B"]
+    }
+  }
+]
