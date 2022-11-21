@@ -8018,6 +8018,7 @@
        -webkit-justify-content: center;
        -ms-flex-pack: center;
        justify-content: center;
+       flex-direction: column;
      }
    
      .text-block-4 {
@@ -8098,7 +8099,7 @@
      .heading-41-copy {
        margin-top: 0px;
        margin-bottom: 0px;
-       color: #ffadf0;
+       color: #faaa21;
        font-size: 14px;
      }
    
