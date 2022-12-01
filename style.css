@@ -1,4 +1,4 @@
-/* Generated on: Sat Nov 19 2022 11:53:36 GMT+0000 (Coordinated Universal Time) */
+/* Generated on: Thu Dec 01 2022 09:35:18 GMT+0000 (Coordinated Universal Time) */
 /* ==========================================================================
    normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css 
    ========================================================================== */
@@ -192,10 +192,10 @@
      margin-right: 0px;
      margin-left: 0px;
      padding-top: 32px;
-     -webkit-box-align: center;
-     -webkit-align-items: center;
-     -ms-flex-align: center;
-     align-items: center;
+     -webkit-box-align: start;
+     -webkit-align-items: start;
+     -ms-flex-align: start;
+     align-items: start;
      grid-column-gap: 0px;
      -ms-grid-columns: 1.5fr 1fr;
      grid-template-columns: 1.5fr 1fr;
@@ -2689,14 +2689,14 @@
      -webkit-flex-direction: column;
      -ms-flex-direction: column;
      flex-direction: column;
-     -webkit-box-pack: center;
-     -webkit-justify-content: center;
-     -ms-flex-pack: center;
-     justify-content: center;
-     -webkit-box-align: end;
-     -webkit-align-items: flex-end;
-     -ms-flex-align: end;
-     align-items: flex-end;
+     -webkit-box-pack: start;
+     -webkit-justify-content: flex-start;
+     -ms-flex-pack: start;
+     justify-content: flex-start;
+     -webkit-box-align: start;
+     -webkit-align-items: flex-start;
+     -ms-flex-align: start;
+     align-items: flex-start;
    }
    
    .paragraph-9 {
@@ -4504,7 +4504,7 @@
    }
    
    .paragraph-12 {
-     margin-top: 24px;
+     margin-top: 16px;
      margin-bottom: 0px;
      text-align: left;
    }
@@ -4531,7 +4531,7 @@
      display: -webkit-flex;
      display: -ms-flexbox;
      display: flex;
-     margin-top: 16px;
+     margin-top: 24px;
      -webkit-box-align: center;
      -webkit-align-items: center;
      -ms-flex-align: center;
@@ -4590,7 +4590,7 @@
    
    .form-block {
      display: block;
-     margin-top: 12px;
+     margin-top: 24px;
      margin-bottom: 0px;
      -webkit-box-pack: justify;
      -webkit-justify-content: space-between;
@@ -4846,6 +4846,45 @@
      color: #fff;
      font-size: 16px;
      font-weight: 500;
+   }
+   
+   .download_app_div {
+     display: -webkit-box;
+     display: -webkit-flex;
+     display: -ms-flexbox;
+     display: flex;
+     margin-top: 24px;
+     -webkit-box-orient: vertical;
+     -webkit-box-direction: normal;
+     -webkit-flex-direction: column;
+     -ms-flex-direction: column;
+     flex-direction: column;
+     -webkit-box-align: start;
+     -webkit-align-items: flex-start;
+     -ms-flex-align: start;
+     align-items: flex-start;
+   }
+   
+   .bold-text-14-copy {
+     display: block;
+     font-family: 'Public Sans', sans-serif;
+     color: #ffadf0;
+     font-size: 16px;
+     line-height: 24px;
+     font-weight: 500;
+   }
+   
+   .link-block-18 {
+     margin-top: 8px;
+     margin-left: 0px;
+   }
+   
+   .image-110 {
+     max-width: 150px;
+   }
+   
+   .image-111 {
+     max-width: 150px;
    }
    
    @media screen and (max-width: 991px) {
@@ -6958,10 +6997,10 @@
        -webkit-justify-content: center;
        -ms-flex-pack: center;
        justify-content: center;
-       -webkit-box-align: end;
-       -webkit-align-items: flex-end;
-       -ms-flex-align: end;
-       align-items: flex-end;
+       -webkit-box-align: center;
+       -webkit-align-items: center;
+       -ms-flex-align: center;
+       align-items: center;
      }
    
      .paragraph-9 {
@@ -8014,11 +8053,15 @@
      }
    
      .call_div {
+       -webkit-box-orient: vertical;
+       -webkit-box-direction: normal;
+       -webkit-flex-direction: column;
+       -ms-flex-direction: column;
+       flex-direction: column;
        -webkit-box-pack: center;
        -webkit-justify-content: center;
        -ms-flex-pack: center;
        justify-content: center;
-       flex-direction: column;
      }
    
      .text-block-4 {
@@ -8162,6 +8205,30 @@
        background-color: rgba(138, 83, 83, 0);
        color: #fff;
      }
+   
+     .download_app_div {
+       margin-top: 16px;
+       margin-bottom: 16px;
+       -webkit-box-orient: vertical;
+       -webkit-box-direction: normal;
+       -webkit-flex-direction: column;
+       -ms-flex-direction: column;
+       flex-direction: column;
+     }
+   
+     .bold-text-14-copy {
+       font-size: 14px;
+       text-align: center;
+     }
+   
+     .link-block-18 {
+       margin-top: 8px;
+       margin-left: 0px;
+     }
+   
+     .link-block-19 {
+       margin-top: 12px;
+     }
    }
    
    #w-node-_24149651-174b-9426-8daa-e76acd5d7528-1ef432ac {
@@ -8177,6 +8244,17 @@
      align-self: center;
      -ms-grid-column-align: center;
      justify-self: center;
+   }
+   
+   #w-node-_6fbe505f-dfca-b1b5-3c89-879cdabc930d-1ef432ac {
+     -ms-grid-column: span 1;
+     grid-column-start: span 1;
+     -ms-grid-column-span: 1;
+     grid-column-end: span 1;
+     -ms-grid-row: span 1;
+     grid-row-start: span 1;
+     -ms-grid-row-span: 1;
+     grid-row-end: span 1;
    }
    
    #w-node-_6032e314-bc2d-eb10-1c9f-9258d3545f41-1ef432ac {
@@ -8382,6 +8460,28 @@
      justify-self: center;
    }
    
+   #w-node-_0d930a5f-0169-fb48-825e-2546d019160f-cbd33b62 {
+     -ms-grid-column: span 1;
+     grid-column-start: span 1;
+     -ms-grid-column-span: 1;
+     grid-column-end: span 1;
+     -ms-grid-row: span 1;
+     grid-row-start: span 1;
+     -ms-grid-row-span: 1;
+     grid-row-end: span 1;
+   }
+   
+   #w-node-_9b7add7f-376d-05c5-c8be-b552de426e3c-cbd33b62 {
+     -ms-grid-column: span 1;
+     grid-column-start: span 1;
+     -ms-grid-column-span: 1;
+     grid-column-end: span 1;
+     -ms-grid-row: span 1;
+     grid-row-start: span 1;
+     -ms-grid-row-span: 1;
+     grid-row-end: span 1;
+   }
+   
    #w-node-_2a908d72-c7ae-4e4c-184f-7c998cc46b91-cbd33b62 {
      -ms-grid-column-align: center;
      justify-self: center;
@@ -8426,8 +8526,8 @@
      }
    
      #w-node-_810e10bd-8168-d2a8-8170-c31652bc1de1-1ef432ac {
-       -ms-grid-column-align: end;
-       justify-self: end;
+       -ms-grid-column-align: center;
+       justify-self: center;
      }
    
      #my-map.w-node-ea1ed9f0-1982-5271-254c-0b8ae5e2d29f-1ef432ac {
