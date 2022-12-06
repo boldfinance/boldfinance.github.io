@@ -191,7 +191,7 @@
                             </a>
                             <div class="download_app_div" style="margin-top: 16px;">
                                 <div id="w-node-_6fbe505f-dfca-b1b5-3c89-879cdabc930d-1ef432ac" class="text-span-2">हमारी ऐप डाउनलोड करें</div>
-                                <a href="https://play.google.com/store/apps/details?id=com.boldfinance.customer" target="_blank" class="link-block-18 w-inline-block" onclick="trackEvent('PlayStore','top_playstore')" style="margin-top: 4px;">
+                                <a href="https://play.google.com/store/apps/details?id=com.boldfinance.customer" target="_blank" class="link-block-18 w-inline-block" onclick="trackGtagEvent('PlayStore','top_playstore')" style="margin-top: 4px;">
                                     <img src="https://uploads-ssl.webflow.com/61a1bbd4e18d7643cff432ab/6387145fb348d14af23b1f32_play_store.svg" loading="lazy" alt="" class="image-110" style="width: 150px;"/>
                                 </a>
                             </div>
@@ -425,7 +425,7 @@
                 <div class="div-block-21">
                     <img src="https://uploads-ssl.webflow.com/6309c5a4741fe73b6e2700f8/6309c9152bf6130d30a962cb_Layer%2011.svg" loading="lazy" alt="" />
                     <div class="text-block-21">Enable financial freedom for Bharat</div>
-                    <a id="w-node-_0d930a5f-0169-fb48-825e-2546d019160f-cbd33b62" href="https://play.google.com/store/apps/details?id=com.boldfinance.customer" class="link-block-19 w-inline-block"  style="margin-top: 12px;" target="_blank" onclick="trackEvent('PlayStore','footer_playstore')">
+                    <a id="w-node-_0d930a5f-0169-fb48-825e-2546d019160f-cbd33b62" href="https://play.google.com/store/apps/details?id=com.boldfinance.customer" class="link-block-19 w-inline-block"  style="margin-top: 12px;" target="_blank" onclick="trackGtagEvent('PlayStore','footer_playstore')">
                         <img src="https://uploads-ssl.webflow.com/61a1bbd4e18d7643cff432ab/6387145fb348d14af23b1f32_play_store.svg" loading="lazy" id="w-node-_9b7add7f-376d-05c5-c8be-b552de426e3c-cbd33b62" alt="" class="image-111" width="150px" />
                     </a>
                 </div>
@@ -648,13 +648,17 @@
 		}
 		
 		function trackEvent(eventCategory, eventLabel) {
-			gtag('event', 'click', {
+			gtag('event', 'conversion', {'send_to': 'AW-10890021464/0YCcCLuq0uIDENiU4sgo'});
+            trackGtagEvent(eventCategory, eventLabel);
+		}
+
+        function trackGtagEvent(eventCategory, eventLabel) {
+            gtag('event', 'click', {
 				'event_category': eventCategory,
 				'event_label': eventLabel,
 				'send_to': 'UA-216016461-1'
 			});
-			gtag('event', 'conversion', {'send_to': 'AW-10890021464/0YCcCLuq0uIDENiU4sgo'});
-		}
+        }
 		
 		function isPresentInSession(mobile) {
 			var storedNumbers = JSON.parse(sessionStorage.getItem("phoneNumbers"));
