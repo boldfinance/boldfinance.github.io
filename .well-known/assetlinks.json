@@ -1,11 +1,18 @@
 [
   {
     "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
+    "target" : { 
+      "namespace": "android_app", 
       "package_name": "com.boldfinance.customer",
-      "sha256_cert_fingerprints":
-        ["A1:26:A5:39:18:A7:1D:A7:99:EC:C8:58:5A:53:ED:93:6C:C7:11:08:7B:D9:EB:2A:8E:6F:08:8A:BD:C6:0E:9B"]
+      "sha256_cert_fingerprints": ["A9:3B:B7:EE:7E:82:5C:FB:61:20:D7:54:62:17:D3:CB:E5:DB:1A:E4:B8:2A:65:58:86:8B:B9:02:4A:4B:5C:0A"]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target" : { 
+      "namespace": "android_app", 
+      "package_name": "com.boldfinance.customer",         
+      "sha256_cert_fingerprints": ["A1:26:A5:39:18:A7:1D:A7:99:EC:C8:58:5A:53:ED:93:6C:C7:11:08:7B:D9:EB:2A:8E:6F:08:8A:BD:C6:0E:9B"]
     }
   }
 ]
